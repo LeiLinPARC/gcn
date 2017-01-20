@@ -66,7 +66,7 @@ sess = tf.Session()
 def evaluate(features, support, labels, mask, placeholders):
     t_test = time.time()
     feed_dict_val = construct_feed_dict(features, support, labels, mask, placeholders)
-    outs_val = sess.run([model.loss, model.accuracy], feed_dict=feed_dict_val)
+    outs_val = sess.run([model.loss, model.accuracy], feed_dict=feed_dict_val) # feed_dict decides the number of hidden layers?
     return outs_val[0], outs_val[1], (time.time() - t_test)
 
 
