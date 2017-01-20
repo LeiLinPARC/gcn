@@ -153,7 +153,7 @@ class GraphConvolution(Layer):
         with tf.variable_scope(self.name + '_vars'):
             for i in range(len(self.support)):
                 self.vars['weights_' + str(i)] = glorot([input_dim, output_dim],
-                                                        name='weights_' + str(i))
+                                                        name='weights_' + str(i)) # initialize the weights
             if self.bias:
                 self.vars['bias'] = zeros([output_dim], name='bias')
 
@@ -176,10 +176,10 @@ class GraphConvolution(Layer):
                 pre_sup = dot(x, self.vars['weights_' + str(i)],
                               sparse=self.sparse_inputs)
             else:
-                pre_sup = self.vars['weights_' + str(i)]
-            support = dot(self.support[i], pre_sup, sparse=True)
-            supports.append(support)
-        output = tf.add_n(supports)
+                pre_sup = self.vars['weights_' + str(i)] # calculate pre_sup first
+            support = dot(self.support[i], pre_sup, sparse=True) # then use the colvoltion filter 
+            supports.append(support) 
+        output = tf.add_n(supports) 
 
         # bias
         if self.bias:
