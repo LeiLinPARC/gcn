@@ -56,7 +56,7 @@ placeholders = {
 }
 
 # Create model
-model = model_func(placeholders, input_dim=features[2][1], logging=True)
+model = model_func(placeholders, input_dim=features[2][1], logging=True) # line 36, 40, 44, input_dim is the number of nodes
 
 # Initialize session
 sess = tf.Session()
