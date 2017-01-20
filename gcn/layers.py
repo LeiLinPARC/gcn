@@ -172,7 +172,7 @@ class GraphConvolution(Layer):
         # convolve
         supports = list()
         for i in range(len(self.support)):
-            if not self.featureless:
+            if not self.featureless: # featureless default value false
                 pre_sup = dot(x, self.vars['weights_' + str(i)],
                               sparse=self.sparse_inputs)
             else:
