@@ -185,4 +185,4 @@ class GraphConvolution(Layer):
         if self.bias:
             output += self.vars['bias']
 
-        return self.act(output)
+        return self.act(output) # activation function is reLU
