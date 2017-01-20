@@ -161,7 +161,7 @@ class GCN(Model):
 
     def _build(self):
 
-        self.layers.append(GraphConvolution(input_dim=self.input_dim,
+        self.layers.append(GraphConvolution(input_dim=self.input_dim, # go to check layers.py-GraphConvolution
                                             output_dim=FLAGS.hidden1,
                                             placeholders=self.placeholders,
                                             act=tf.nn.relu,
