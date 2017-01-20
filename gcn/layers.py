@@ -103,7 +103,7 @@ class Dense(Layer):
 
         with tf.variable_scope(self.name + '_vars'):
             self.vars['weights'] = glorot([input_dim, output_dim],
-                                          name='weights')
+                                          name='weights') # initialize the weights
             if self.bias:
                 self.vars['bias'] = zeros([output_dim], name='bias')
 
