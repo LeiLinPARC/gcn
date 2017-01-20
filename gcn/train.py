@@ -33,7 +33,7 @@ features = preprocess_features(features)
 if FLAGS.model == 'gcn':
     support = [preprocess_adj(adj)]
     num_supports = 1
-    model_func = GCN
+    model_func = GCN # what model are we using...
 elif FLAGS.model == 'gcn_cheby':
     support = chebyshev_polynomials(adj, FLAGS.max_degree)
     num_supports = 1 + FLAGS.max_degree
