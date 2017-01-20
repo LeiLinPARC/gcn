@@ -49,7 +49,7 @@ else:
 placeholders = {
     'support': [tf.sparse_placeholder(tf.float32) for _ in range(num_supports)],
     'features': tf.sparse_placeholder(tf.float32, shape=tf.constant(features[2], dtype=tf.int64)), #features[2] is the input dimension, N by ..
-    'labels': tf.placeholder(tf.float32, shape=(None, y_train.shape[1])), # the number of nodes in the output
+    'labels': tf.placeholder(tf.float32, shape=(None, y_train.shape[1])), # "None" means the same number of nodes as the input layer? # y_train.shape[1] is the length of the vector for each output node 
     'labels_mask': tf.placeholder(tf.int32),
     'dropout': tf.placeholder_with_default(0., shape=()),
     'num_features_nonzero': tf.placeholder(tf.int32)  # helper variable for sparse dropout
