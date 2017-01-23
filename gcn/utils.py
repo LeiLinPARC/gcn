@@ -22,7 +22,8 @@ def sample_mask(idx, l):
 
 def load_data(dataset_str):
     """Load data."""
-    names = ['x', 'y', 'tx', 'ty', 'allx', 'ally', 'graph']
+    names = ['x', 'y', 'tx', 'ty', 'allx', 'ally', 'graph'] # x, y is split into xtrain, xval, tx, ty is from the test data
+    # allx, ally include x+tx, y+ty
     objects = []
     for i in range(len(names)):
         objects.append(pkl.load(open("data/ind.{}.{}".format(dataset_str, names[i]))))
